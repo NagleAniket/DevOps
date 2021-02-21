@@ -105,6 +105,11 @@ Remove remote origin URL
 git remote remove origin 
 ```
 
+Fetch all the remote branches
+
+```sh
+git fetch
+```
 Push your local changes to remote branch
 
 ```sh

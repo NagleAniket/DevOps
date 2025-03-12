@@ -20,6 +20,12 @@ git config --global user.name "<your username>"
 git config --global user.email "<your email>"
 ```
 
+Check All Git Configurations
+```sh
+git config --list
+git config --global --list  # To check only global configurations
+
+```
 Initialise an empty Git Repository
 
 ```sh

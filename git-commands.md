@@ -36,6 +36,8 @@ Clone an existing Git Repository
 
 ```sh
 git clone <repository URL>
+git remote set-url origin https://"git_personal_token"@github.com/git_username/repository.git  --clone from ssh
+git clone "ssh_link_from_github_repo"
 ```
 
 Add file/stage to git

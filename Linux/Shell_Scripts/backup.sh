@@ -1,5 +1,11 @@
 #!/bin/bash
 
+<<help
+
+This scripts take backup
+help
+
+
 echo "============== BACKUP SCRIPT =============="
 
 # Prompt user for source and destination directories

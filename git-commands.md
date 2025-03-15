@@ -89,14 +89,15 @@ Checkout to an existing branch
 git checkout <branch name>
 ```
 
-```sh
 Branch Merge
-
+```sh
 git merge <branch name>
 
 ```
+
 Remove a branch from Git
 
+```sh
 git branch -d <branch name>
 ```
 

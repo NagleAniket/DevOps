@@ -1,0 +1,36 @@
+
+#Satge 1
+#Base Image (Where we have use slim image with linux ditro)
+
+FROM python:3.9-slim AS builder
+
+# working Dir
+
+WORKDIR /app
+
+# Copy COde
+
+COPY . .
+
+# RUN The BUILD command
+
+RUN pip install -r requirements.txt --target=/app/deps
+
+#Stage 2 (Where we have use slim image without linux ditro)
+
+FROM gcr.io/distroless/python3-debian12
+
+WORKDIR /app
+
+COPY --from=builder /app/deps /app/deps
+COPY --from=builder /app .
+
+ENV PYTHONPATH="/app/deps"
+
+# PORT Ecpose
+
+EXPOSE 80
+
+# SERVE THE APP
+
+CMD ["run.py"]

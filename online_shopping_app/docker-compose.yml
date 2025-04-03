@@ -1,0 +1,14 @@
+services:
+  online_shop:
+     container_name: online_shop
+     build:
+       context: /home/ubuntu/devops/online_shopping_app/
+       dockerfile: Dockerfile
+     ports:
+       - "80:80"
+     networks:
+       - onlineshop
+
+networks:
+  onlineshop:
+    driver: bridge

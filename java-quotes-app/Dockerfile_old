@@ -1,0 +1,27 @@
+# 1 Base Image(OS)/software require for program
+
+FROM openjdk:17-jdk-alpine
+
+# 2 Working directory for app
+
+WORKDIR /app
+
+# 3 code to create -- copy code from your host to container working directory
+
+COPY src/Main.java /app/Main.java
+
+COPY quotes.txt quotes.txt
+
+# 4 Run the command to install liberies or compile code
+
+RUN javac Main.java
+
+# 5 Expose the port
+
+EXPOSE 8000
+
+# 6 Serve the app keep it running
+
+CMD ["java","Main"]
+
+

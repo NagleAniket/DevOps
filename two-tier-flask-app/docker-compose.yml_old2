@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:5.7  
+    container_name: mysql
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ani_db
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    networks:
+      - twotier
+    ports:
+      - "3306:3306"
+    healthcheck: 
+      test: ["CMD","mysqladmin","ping","-h","localhost","-uroot","-admin"]
+      interval: 10s
+      retries: 5
+      start_period: 60s
+      timeout: 5s
+
+  flask_app:
+    build:
+      context: /home/ubuntu/devops/two-tier-flask-app/
+      dockerfile: Dockerfile
+    container_name: flask_app
+    environment:
+        MYSQL_HOST: mysql
+        MYSQL_USER: root
+        MYSQL_PASSWORD: admin
+        MYSQL_DB: ani_db
+
+    networks:
+          - twotier
+    ports:
+          - "5000:5000"
+    depends_on:
+          -  mysql
+  
+volumes:
+  mysql_data:  
+
+networks:
+  twotier:
+
+ 
+

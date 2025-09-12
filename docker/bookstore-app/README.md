@@ -1,34 +1,59 @@
-# BookStore App (2-tier)
+BookStore App (2-Tier: React + Express API)
+Overview
 
-**Stack:** React (frontend) + Node/Express (backend)
+The BookStore App is a simple 2-tier web application with:
 
-## Overview
-A simple bookstore webapp where the frontend fetches a list of books from the backend.
+Frontend: React (served via Nginx)
 
-## Folder structure
-```
+Backend: Node.js + Express API
+
+The backend provides REST APIs for books, while the frontend interacts with it.
+
+📂 Folder Structure
 bookstore-app/
-  backend/
-    server.js
-    package.json
-    Dockerfile
-  frontend/
-    public/index.html
-    src/App.js
-    src/index.js
-    package.json
-    Dockerfile
-  docker-compose.yml
-```
+├── frontend/               # React app
+│   ├── Dockerfile
+│   ├── package.json
+│   └── src/...
+├── backend/                # Express app
+│   ├── Dockerfile
+│   ├── package.json
+│   └── server.js
+├── docker-compose.yml
+└── README.md
 
-## Run
-1. Build and start:
-```bash
+🚀 Setup & Run
+
+Clone the repo:
+
+git clone <repo_url>
+cd bookstore-app
+
+
+Build & start with Docker Compose:
+
 docker compose up --build
-```
-2. Frontend: http://localhost:3000  
-   Backend API: http://localhost:5000/api/books
 
-## Notes
-- Frontend is built then served by nginx in the Dockerfile.
-- Change ports in `docker-compose.yml` if needed.
+
+Access:
+
+Frontend → http://localhost:3000
+
+Backend API → http://localhost:5000/api/books
+
+🛠️ Services
+
+Frontend: Built with React → static files → served via Nginx
+
+Backend: Express API, serving book data (JSON)
+
+Example API
+GET /api/books
+
+
+Response:
+
+[
+  { "id": 1, "title": "Docker Made Easy" },
+  { "id": 2, "title": "Learning React" }
+]

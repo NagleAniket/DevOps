@@ -1,26 +1,12 @@
-BookStore App (2-Tier: React + Express API)
-Overview
+**BookStore App (2-Tier: React + Express API)**
+
+**Overview**
 
 The BookStore App is a simple 2-tier web application with:
-
 Frontend: React (served via Nginx)
-
 Backend: Node.js + Express API
 
 The backend provides REST APIs for books, while the frontend interacts with it.
-
-📂 Folder Structure
-bookstore-app/
-├── frontend/               # React app
-│   ├── Dockerfile
-│   ├── package.json
-│   └── src/...
-├── backend/                # Express app
-│   ├── Dockerfile
-│   ├── package.json
-│   └── server.js
-├── docker-compose.yml
-└── README.md
 
 🚀 Setup & Run
 
